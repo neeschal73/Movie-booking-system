@@ -1,120 +1,23 @@
-import React, { useState } from "react"
-import { Link, NavLink } from "react-router-dom"
+import React from "react"
+import { Link } from "react-router-dom"
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-
   return (
-    <nav className="bg-blue-600 text-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/" className="text-xl font-bold">
-              MovieBooking
-            </Link>
-          </div>
+    <nav className="bg-black text-white px-6 py-4 flex justify-between items-center shadow-lg">
+      <Link to="/home" className="text-2xl font-bold text-red-500">
+        CineBook
+      </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
-            <NavLink
-              to="/home"
-              className={({ isActive }) =>
-                isActive ? "font-semibold underline" : "hover:underline"
-              }
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/movies"
-              className={({ isActive }) =>
-                isActive ? "font-semibold underline" : "hover:underline"
-              }
-            >
-              Movies
-            </NavLink>
-            <NavLink
-              to="/booking"
-              className={({ isActive }) =>
-                isActive ? "font-semibold underline" : "hover:underline"
-              }
-            >
-              My Bookings
-            </NavLink>
-          </div>
-
-          {/* Login/Register Buttons Desktop */}
-          <div className="hidden md:flex space-x-4">
-            <Link
-              to="/login"
-              className="px-3 py-1 rounded-md bg-white text-blue-600 font-medium hover:bg-gray-100"
-            >
-              Login
-            </Link>
-            <Link
-              to="/register"
-              className="px-3 py-1 rounded-md bg-white text-blue-600 font-medium hover:bg-gray-100"
-            >
-              Register
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="focus:outline-none focus:ring-2 focus:ring-white"
-            >
-              {isOpen ? (
-                <span className="text-2xl">✖</span>
-              ) : (
-                <span className="text-2xl">☰</span>
-              )}
-            </button>
-          </div>
-        </div>
+      <div className="space-x-6 hidden md:block">
+        <Link to="/home" className="hover:text-red-400">Home</Link>
+        <Link to="/movies" className="hover:text-red-400">Movies</Link>
+        <Link to="/booking" className="hover:text-red-400">Bookings</Link>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-blue-600 px-4 pt-2 pb-4 space-y-2">
-          <NavLink
-            to="/home"
-            className="block text-white hover:underline"
-            onClick={() => setIsOpen(false)}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/movies"
-            className="block text-white hover:underline"
-            onClick={() => setIsOpen(false)}
-          >
-            Movies
-          </NavLink>
-          <NavLink
-            to="/booking"
-            className="block text-white hover:underline"
-            onClick={() => setIsOpen(false)}
-          >
-            My Bookings
-          </NavLink>
-          <Link
-            to="/login"
-            className="block px-3 py-1 rounded-md bg-white text-blue-600 text-center"
-            onClick={() => setIsOpen(false)}
-          >
-            Login
-          </Link>
-          <Link
-            to="/register"
-            className="block px-3 py-1 rounded-md bg-white text-blue-600 text-center"
-            onClick={() => setIsOpen(false)}
-          >
-            Register
-          </Link>
-        </div>
-      )}
+      <div className="space-x-3">
+        <Link to="/login" className="border px-3 py-1 rounded hover:bg-red-500">Login</Link>
+        <Link to="/register" className="bg-red-500 px-3 py-1 rounded hover:bg-red-600">Register</Link>
+      </div>
     </nav>
   )
 }
