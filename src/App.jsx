@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import Navbar from './Pages/Navbar'
@@ -9,9 +9,15 @@ import Register from './Pages/Register'
 import Home from './Pages/Home'
 import Movies from './Pages/Movies'
 
+import { seedFirestore } from './seed/seedData'
 import './index.css'
 
 export default function App() {
+
+  useEffect(() => {
+    seedFirestore();
+  }, []);
+
   return (
     <>
       <Navbar />
