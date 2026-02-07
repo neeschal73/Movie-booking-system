@@ -33,7 +33,7 @@ export default function Register() {
 
     try {
       await signup(formData.email, formData.password, formData.name, formData.address, formData.phone, formData.district, formData.city)
-      navigate("/home")
+      navigate("/")
     } catch (err) {
       setError(err.message || "Failed to create account")
     } finally {

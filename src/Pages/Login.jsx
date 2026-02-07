@@ -21,7 +21,7 @@ export default function Login() {
 
     try {
       await login(formData.email, formData.password)
-      navigate("/home")
+      navigate("/")
     } catch (err) {
       setError(err.message || "Failed to sign in")
     } finally {
@@ -35,7 +35,7 @@ export default function Login() {
 
     try {
       await loginWithGoogle()
-      navigate("/home")
+      navigate("/")
     } catch (err) {
       setError(err.message || "Failed to sign in with Google")
     } finally {
